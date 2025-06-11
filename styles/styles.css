@@ -1,0 +1,102 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+
+body{
+    background-color: rgb(36, 35, 35);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+#wrapper{
+    height: 100vh;
+    margin: 0 auto;
+    width:75%;
+    background-image:url('../assets/images/pattern-circle.svg'),url('../assets/images/pattern-squiggly-line-bottom-desktop.svg'),url('../assets/images/pattern-lines.svg'), url('../assets/images/background-desktop.png');
+    background-size:15%,60%,cover,cover;
+    background-repeat: no-repeat;
+    background-position:75%,bottom left,100%, 100%;
+    color:rgb(244, 244, 244);
+    padding: 2rem 0rem;
+}
+
+header{
+    background-image: url('../assets/images/pattern-squiggly-line-top.svg');
+    background-size:35%;
+    background-repeat: no-repeat;
+    background-position:right;
+}
+
+#logo{
+    width:15%;
+    margin: 0 auto;
+    display: block;
+}
+
+h1{
+    text-align: center;
+    font-family:"Inconsolata", monospace;
+    font-weight: 700;
+    width:70%;
+    font-size: 2.5em;
+    margin:3rem auto 1rem auto;
+}
+
+p{
+    text-align: center;
+    font-family:"Inconsolata", monospace;
+    font-weight: 400;
+    font-size: 1em;
+    color: rgb(180, 180, 180);
+}
+
+#info-wrapper{
+    display: flex;
+    align-items: center;
+    margin: 0 0 1rem 0;
+    gap:0.5em;
+}
+
+#info{
+    font-size:0.7em;
+    text-align: left;
+}
+
+#info-icon{
+    width:5%;
+}
+
+form{
+    margin: auto;
+    width:30%;
+    padding:1rem;
+    font-family:"Inconsolata", monospace;
+    font-weight: 400;
+    font-size: 0.9em;
+}
+
+form input{
+    margin:1rem 0rem;
+    width:100%;
+    border-radius: 7px;
+    padding:0.6rem;
+    box-sizing: border-box;
+    /* appearance: none; */
+    border : 1px solid hsla(260, 32%, 56%, 0.6);
+    background-color: hsla(260, 32%, 56%, 0.2);
+    color:aliceblue;
+}
+
+form input:focus{
+    outline: solid 1px hsl(260, 3%, 64%);
+    outline-offset: 2px;
+}
+
+#submit{
+    background-color: #F67464ff !important;
+    font-weight: 800;
+    color: #0C0128ff;
+}
+
+#submit:hover{
+    cursor: pointer;
+}
