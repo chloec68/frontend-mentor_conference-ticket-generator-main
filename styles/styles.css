@@ -95,8 +95,34 @@ form input:focus{
     background-color: #F67464ff !important;
     font-weight: 800;
     color: #0C0128ff;
+    border:none;
 }
 
 #submit:hover{
     cursor: pointer;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+#inputfile {
+	width: 100%;
+	height: 90px;
+    border-radius: 6px;
+    border:dashed 1px hsl(260, 3%, 64%, 0.6);
+    margin-top:1rem;
+}
+
+#upload-icon{
+    width:35px;
+    height:35px;
+    border-radius:6px;
+    margin: auto;
+    border:0.2px solid hsl(260, 3%, 64%,0.7) ;
+    background-color: hsl(260, 3%, 64%, 0.3);
+    background-image: url('../assets/images/icon-upload.svg');
+    background-position: center;
+    background-size: 60%;
+    background-repeat: no-repeat;
 }
