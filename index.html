@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
 
   <link rel="stylesheet" href="styles/styles.css">
-  
+
   <title>Frontend Mentor | Conference ticket generator</title>
 </head>
 
@@ -24,23 +24,25 @@
       <p>Secure your spot at next year's biggest coding conference.</p>
     </header>
 
-    <form action="">
+    <form id="myForm">
 
       <label for="">Upload Avatar</label><br>
       <div id="inputfile">
         <div id="upload-icon"></div>
+        <p>Drag and drop or click to upload</p>
       </div>
-      <div id="info-wrapper"><img id="info-icon" src="assets/images/icon-info.svg" alt="info icon"> <p id="info">Upload your photo (JPG or PNG, max size: 500KB).</p></div>
-  
-    
+      <div id="info-wrapper"><img class="info-icon" src="assets/images/icon-info.svg" alt="info icon"> <p id="info">Upload your photo (JPG or PNG, max size: 500KB).</p></div>
+
       <label for="">Full Name</label><br>
-      <input type="text" id="" name=""><br>
+      <input type="text" name="fullName" required><br>
       
       <label for="">Email Address</label><br>
-      <input type="email" placeholder="example@email.com"><br>
+      <input type="email" placeholder="example@email.com" required>
+      <span id="email-validation" class="error-message"><img class="info-icon" src="assets/images/icon-info.svg" alt="info icon"> Please enter a valid email address</span>
+      <br>
       
       <label for="">GitHub Username</label><br>
-      <input type="text" placeholder="@yourusername"><br>
+      <input type="text" placeholder="@yourusername" required><br>
     
       <input type="submit" id="submit" value="Generate My Ticket"><br>
 
@@ -64,5 +66,55 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
     Coded by <a href="#">Chloé</a>.
   </div>
+
+
+  <script>
+
+    // chargement préalable du doc HTML avant exécution du script
+    document.addEventListener("DOMContentLoaded", function() {
+    // récupère tous les éléments possédant le tag <input> dans la page
+    const inputs = document.getElementsByTagName("INPUT");
+    // parcourt tous les inputs
+    for (let i = 0; i < inputs.length; i++) {
+        // à chaque tour de boucle, si le champ est vide ou invalide, exécute la fonction 
+        // oninvalid = attribut d'évènement 
+        inputs[i].oninvalid = function(e) {
+            //supprime/reset tout message d'erreur sur le champ e.target
+            e.target.setCustomValidity(""); 
+            // si le champ est toujours invalide
+            if (!e.target.validity.valid) {
+                // ajout de la classe "invalid"
+                e.target.classList.add('invalid');
+                // récupération du span
+                const errorSpan = document.getElementById("email-validation");
+                // si l'élément <span> existe et contient la classe "error-message"
+                if (errorSpan && errorSpan.classList.contains('error-message')) {
+                  //ajouter la classe "visible"
+                  errorSpan.classList.add('visible');
+                }
+            }
+        };
+     
+        // lorsque la valeur de l'input est modifiée
+        inputs[i].oninput = function(e) {
+            //reset le message d'erreur
+            e.target.setCustomValidity("");
+            //ôte la classe "invalid"
+            e.target.classList.remove('invalid');
+            // récupération du <span>
+            const errorSpan = document.getElementById("email-validation");
+              // si l'élément existe et qu'il contient la classe "error-message"
+              if (errorSpan && errorSpan.classList.contains('error-message')) {
+                // modification du style du span 
+                errorSpan.style.display = "none";
+                // ôte la classe "visible"
+                errorSpan.classList.remove('visible');
+              }
+        };
+    }
+})
+
+  </script>
+
 </body>
 </html>
